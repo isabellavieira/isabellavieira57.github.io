@@ -82,7 +82,7 @@
             <h2>Understanding the Relationship between Refactorings and Bugs</h2>
             <br/>
         </div>
-        Authors: <a href="mailto:isabellavieira57@gmail.com">Isabella Ferreira<sup>1</sup></a>, Eduardo Fernandes<sup>1</sup>, Diego Cedrim<sup>1</sup>, Anderson Uchôa<sup>1</sup>, Ana Carla Bibiano<sup>1</sup>, Alessandro Garcia<sup>1</sup>, João Lucas Correia<sup>2</sup>, Filipe Santos<sup>2</sup>, Gabriel Nunes<sup>2</sup>, Caio Barbosa<sup>2</sup>, Baldoino Fonseca<sup>2</sup> and Rafael de Mello<sup>1</sup>
+        Authors: <a href="mailto:iferreira@inf.puc-rio.br">Isabella Ferreira<sup>1</sup></a>, <a href="mailto:emfernandes@inf.puc-rio.br">Eduardo Fernandes<sup>1</sup>, <a href="mailto:dcgrego@inf.puc-rio.br">Diego Cedrim<sup>1</sup>, <a href="mailto:auchoa@inf.puc-rio.br">Anderson Uchôa<sup>1</sup>, <a href="mailto:abibiano@inf.puc-rio.br">Ana Carla Bibiano<sup>1</sup>, <a href="mailto:afgarcia@inf.puc-rio.br"> Alessandro Garcia<sup>1</sup>, <a href="mailto:jlmc@ic.ufal.br">João Lucas Correia<sup>2</sup>, <a href="mailto:filipebatista@ic.ufal.br">Filipe Santos<sup>2</sup>,  <a href="mailto:gabrielnunes@ic.ufal.br">Gabriel Nunes<sup>2</sup>, <a href="mailto:cbvs@ic.ufal.br">Caio Barbosa<sup>2</sup>, <a href="mailto:baldoino@ic.ufal.br">Baldoino Fonseca<sup>2</sup> and <a href="mailto:rmaiani@inf.puc-rio.br">Rafael de Mello<sup>1</sup>
 
         <br>
         <a href="http://www.puc-rio.br/english/"><sup>1</sup> Pontifical Catholic University of Rio de Janeiro</a>, Rio de Janeiro, Brazil
@@ -110,29 +110,348 @@
     </div>
 
     <h4> Phase 1: Select Software Projects</h4>
+    <p class="text-justify">
+    This phase consists of selecting a set of software projects for analysis. We relied on open source projects selected from GitHub. To conduct our study, we selected 5 open source projects which follow three criteria as follows. First, they are highly popular on GitHub and from different domains. Second, users actively use their issue tracking systems such as Bugzilla and the GitHub issue management system for bug reporting and improvement suggestions. Third, at least 90\% of the code repository is written in Java, which is a very popular language. Table I provides general data about the analyzed projects. The first column presents the name of the software project. The second column presents the number of lines of code. The third column presents the number of classes. The fourth column presents the analyzed period. The fifth column presents the number of commits. The sixth column presents the number of bug reports.
+    </p>
+
+    <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}
+            .tg .tg-e3zv{font-weight:bold}
+            .tg .tg-hgcj{font-weight:bold;text-align:center}
+            .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+            .tg .tg-yw4l{vertical-align:top}
+        </style>
+        <table class="tg" align="center">
+            <caption>
+                Table I. General data of the analyzed software projects
+            </caption>
+            <tr>
+                <th class="tg-e3zv">Software Project</th>
+                <th class="tg-hgcj">LOC</th>
+                <th class="tg-hgcj">#Classes</th>
+                <th class="tg-amwm">Analyzed Period</th>
+                <th class="tg-amwm">#Commits</th>
+                <th class="tg-amwm">#Bug Reports</th>
+            </tr>
+            <tr>
+                <td class="tg-031e">Ant</td>
+                <td class="tg-031e">137,314</td>
+                <td class="tg-031e">1,784</td>
+                <td class="tg-yw4l">2000-01 to 2016-07</td>
+                <td class="tg-yw4l">13,331</td>
+                <td class="tg-yw4l">70</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Derby</td>
+                <td class="tg-031e">1,760,766</td>
+                <td class="tg-031e">3,741</td>
+                <td class="tg-yw4l">2004-08 to 2016-12</td>
+                <td class="tg-yw4l">8,135</td>
+                <td class="tg-yw4l">173</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Okhttp</td>
+                <td class="tg-031e">49,739</td>
+                <td class="tg-031e">642</td>
+                <td class="tg-yw4l">2011-05 to 2016-08</td>
+                <td class="tg-yw4l">2,645</td>
+                <td class="tg-yw4l">270</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Presto</td>
+                <td class="tg-031e">350,976</td>
+                <td class="tg-031e">4,146</td>
+                <td class="tg-yw4l">2012-08 to 2016-08</td>
+                <td class="tg-yw4l"> 8,056</td>
+                <td class="tg-yw4l">296</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Tomcat</td>
+                <td class="tg-031e">668,720</td>
+                <td class="tg-031e">2,275</td>
+                <td class="tg-yw4l">2006-03 to 2016-12</td>
+                <td class="tg-yw4l">296</td>
+                <td class="tg-yw4l">282</td>
+            </tr>
+        </table>
 
     <h4>Phase 2: Identify Refactorings</h4>
+    <p class="text-justify">
+    We choose to study the 11 most commonly investigated refactoring types in the literature <a href="#Murphy-Hill">(Murphy Hill, Parnin and Black, 2012)</a>. These refactoring types are defined in Fowler's catalog <a href="#Fowler">(Fowler, 1991)</a>. Moreover, we used the Refactoring Miner tool <a href="#Tsantalis">(Tsantalis et al., 2013)</a> to identify refactoring operations in the selected projects. <a href="#Tsantalis">Tsantalis et al.,</a> have reported that Refactoring Miner has a precision of 96.4% and low rates of false positives for all refactoring types, which we confirmed in our validation process, as discussed in Phase 3. Refactoring Miner detects all 11 refactoring types investigated in our study <a href="#Murphy-Hill">(Murphy Hill, Parnin and Black, 2012)</a>. We identified 20,689 refactoring operations in total. Table II presents the refactoring types analyzed in our study. The first column presents the refactoring type. The second column describes the problem that is intended to be addressed by each refactoring type. The third column describes the solution intended by applying each refactoring type. 
+    </p>
+
+    <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}
+            .tg .tg-e3zv{font-weight:bold}
+            .tg .tg-hgcj{font-weight:bold;text-align:center}
+            .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+            .tg .tg-yw4l{vertical-align:top}
+        </style>
+        <table class="tg" align="center">
+            <caption>
+                Table II. Refactoring types analyzed in this study (Extracted from <a href="#Fowler">Fowler, 1991</a>)
+            </caption>
+            <tr>
+                <th class="tg-e3zv">Refactoring Type</th>
+                <th class="tg-hgcj">Problem</th>
+                <th class="tg-hgcj">Solution</th>
+            </tr>
+            <tr>
+                <td class="tg-031e">Extract Method</td>
+                <td class="tg-031e">Parts of code should be gathered in a single method</td>
+                <td class="tg-031e">Create a new method with the extracted code</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Extract Interface</td>
+                <td class="tg-031e">Class that implement commonly used resources</td>
+                <td class="tg-031e">Extract the subset into an interface or two classes have part of their interfaces in common</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Extract Superclass</td>
+                <td class="tg-031e">There are two classes with similar features</td>
+                <td class="tg-031e">Create a superclass and move the common features to the superclass</td>
+            </tr>
+             <tr>
+                <td class="tg-031e">Inline Method</td>
+                <td class="tg-031e">When a method body is more obvious than the method</td>
+                <td class="tg-031e">Replace calls to the method with the method’s itself, use this technique content and delete the method itself</td>
+            </tr>
+             <tr>
+                <td class="tg-031e">Move Field</td>
+                <td class="tg-031e">A field is, or will be, used by another class more than the class in which it's defined</td>
+                <td class="tg-031e">Create a new field in the target class, change all its users</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Move Method</td>
+                <td class="tg-031e">A method is, or will be, using or used by more features of another class than the class in which it is defined</td>
+                <td class="tg-031e">Create a new method with a similar body in the class it uses most. Either turn the old method into a simple delegation, or remove it altogether</td>
+            </tr>
+             <tr>
+                <td class="tg-031e">Rename Method</td>
+                <td class="tg-031e">The name of a method does not reveal its purpose</td>
+                <td class="tg-031e">Change the name of the method</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Pull up Field</td>
+                <td class="tg-031e">Two subclasses have the same field</td>
+                <td class="tg-031e">Move the field to the superclass</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Pull up Method</td>
+                <td class="tg-031e">There are methods with identical results on subclasses</td>
+                <td class="tg-031e">Move them to the superclass</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Push down Field</td>
+                <td class="tg-031e">A field is used only by some subclasses</td>
+                <td class="tg-031e">Move the field to those subclasses</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Push down Method</td>
+                <td class="tg-031e">The behavior on a superclass is relevant only for some of its subclasses</td>
+                <td class="tg-031e">Move it to those subclasses</td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <p class="text-justify"> In this work, it is considered as refactored elements all those directly affected by the refactoring. If a refactoring is applied only in a method body, only this method is considered as refactored element. For instance, lets consider the Move
+            Method refactoring. In this refactoring type, a method m is moved from class A to B. Hence, the considered refactored elements in this case would be {m, A, B}. All m method callers are affected by this refactoring, but we do not consider them
+            as refactored elements. As another example, let us consider the Rename Method refactoring. In this scenario, a new name is given to the method m and the refactored element set would be just {m}. For each refactoring type a different refactored
+            element set is used. In the following table, we present the considered refactored elements for each type of refactoring. </p>
+
+         <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}
+            .tg .tg-e3zv{font-weight:bold}
+            .tg .tg-hgcj{font-weight:bold;text-align:center}
+            .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+            .tg .tg-yw4l{vertical-align:top}
+        </style>
+        <table class="tg" align="center">
+            <caption>
+                Table III. Refactored Elements
+            </caption>
+                 <tr>
+                <th class="tg-e3zv">Refactoring</th>
+                <th class="tg-hgcj">Refactored Elements</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td> Extract Interface </td>
+                    <td> classes implementing the new interface. </td>
+                </tr>
+                <tr>
+                    <td> Extract Method </td>
+                    <td> (i) method created; (ii) method from where the new method was extracted; and (iii) class containing both methods. </td>
+                </tr>
+                <tr>
+                    <td> Extract Superclass </td>
+                    <td> (i) classes extending the new class; and (ii) new class created. </td>
+                </tr>
+                <tr>
+                    <td> Inline Method </td>
+                    <td> (i) the method which received the new code; and (ii) class containing the method. </td>
+                </tr>
+                <tr>
+                    <td> Move Field </td>
+                    <td> the two classes affected by the change: the class which the field used to reside and the class which received the field. </td>
+                </tr>
+                <tr>
+                    <td> Move Method </td>
+                    <td> the two classes affected by the change: the class which the method used to reside and the class which received the method. </td>
+                </tr>
+                <tr>
+                    <td> Pull Up Field </td>
+                    <td> the two classes affected by the change: the class which the field used to reside and the class which received the field. </td>
+                </tr>
+                <tr>
+                    <td> Pull Up Method </td>
+                    <td> the two classes affected by the change: the class which the method used to reside and the class which received the method. </td>
+                </tr>
+                <tr>
+                    <td> Push Down Field </td>
+                    <td> the two classes affected by the change: the class which the field used to reside and the class which received the field. </td>
+                </tr>
+                <tr>
+                    <td> Push Down Method </td>
+                    <td> the two classes affected by the change: the class which the method used to reside and the class which received the method. </td>
+                </tr>
+                <tr>
+                    <td> Rename Method </td>
+                    <td> the renamed method and the class that contains it. </td>
+                </tr>
+            </tbody>
+        </table>
+
 
     <h4>Phase 3: Manually Validate Refactorings and Classify by tactic</h4>
 
+    <p class="text-justify"> 
+    We conducted a manual validation of the refactorings identified by the Refactoring Miner tool to ensure the reliability of our data. Such validation covered a random set of refactoring operations from different refactoring types since the precision of the Refactoring Miner tool could vary due to the rules implemented to detect each refactoring type. We recruited ten undergraduate students to analyze the samples. The samples were divided into ten disjointed sets, and each student validated a different one. After applying a statistical test with a confidence level of 95%, we observed a high precision of the tool for each refactoring, with a median of 88.36%. By applying the Grubb outlier test <a href="#Grubbs">(Grubbs, 1969)</a> (alpha = 0.05), we could not find any outliers, indicating that no refactoring type strongly influences the median precision found. Thus, the obtained results represent a key factor in the reliability of the results reported in this study.
+
+    <br><br> 
+    We also evaluate root-canal and floss refactoring, and we conducted a manual inspection of a randomly selected sample of 2,119 refactorings. We manually analyzed whether the changes performed during the refactoring do not modify the behavior (root-canal refactoring). We classify a change as floss refactoring when there are behavioral changes, such as an addition of methods or changes in the method body that are not related to refactoring transformations. When we did not identify behavioral changes, the refactoring was classified as root-canal. This inspection was performed by three researchers. Two of them are very experienced refactoring researchers. The most experienced one solved the conflicts. As a result, we found that developers apply root-canal refactoring in 31.5% of the cases. The confidence level for this number is 95% with a confidence interval of 5%.
+    </p>   
+
     <h4>Phase 4: Collect Bug Reports</h4>
+
+    <p class="text-justify">
+    We selected bug reports with status <i>resolved fixed</i>, <i>verified fixed</i>, <i>closed</i>, or <i>closed fixed</i> for analysis. Furthermore, we chose to analyze only bugs labeled as <i>bug</i> in the issue tracking system. Table I presents the number of bug reports for each software project (column #Bug Reports).
+    </p>
 
     <h4>Phase 5: Identify the Bug-fix Commit, Bug-fix Elements, and Bug-inducing Commit</h4>
 
+    <p class="text-justify">
+   A common practice among developers is to include the bug report number in the commit comment whenever they fix a bug associated with it <a href="#Śliwerski">(Śliwerski, Zimmermann, and Zeller, 2005)</a>. In this way, to map a bug report with its fix commit, we automatically search log messages for references to bug reports such as  "bug 23442" or "fix for bug 23442" as proposed by Dallmeier and Zimmerman <a href="#Dallmeier">(Dallmeier, and Zimmermann, 2007)</a>. We ignored bug reports that we could not find the commit of the fix because, without the fix commit, we cannot find the fixed files. Thus, these bug reports are considered not functional <a href="#Ye">(Ye, Bunescu, and Liu, 2014)</a>. We consider as buggy elements, all code elements that were modified in the fix commit.
+
+   <br><br>
+
+   Given the bug-fix commit and the bug-fix elements identified, we used the bug-introducing change identification algorithm proposed by <a href="#Śliwerski">Śliwerski, Zimmermann, and Zeller</a> (the SZZ Algorithm) to identify when the bug was introduced in the project. SZZ is currently the most used algorithm for automatically identify fix-inducing commits <a href="#Costa">(Costa et al., 2017)</a>. SZZ aims at identifying the lines modified in a bug-fixing commit, and then it identifies the fix-inducing change immediately before each line of the bug-fixing commit. As the original version of SZZ may have false positives and false negatives, we have used a combination of heuristics proposed by <a href="#Kim">(Kim et al.)</a> and <a href="#Williams">(Williams and Spacco)</a>. <a href="#Kim">Kim et al.</a> mention two limitations of the original SZZ: (i) not all changes are fixes, i.e., even if a file change is defined as a bug-fix by developers, not all hunks in the change are bug-fixes; (ii) there is not enough information in bug tracking systems, and because of this an incorrect bug-inducing commit may be chosen. Using their approach, we can remove 38-51% of false positives and 14% of false negatives as compared to the original implementation of SZZ. SZZ outputs a list of commits related to the introduction of the bug in the software system. The results provided by SZZ will be used to compute the distance between the refactored commit and the commit where the bug was introduced (see Phase 7). For analysis purposes, we considered only the newest commit reported by SZZ.
+
+    </p>
+
+
     <h4>Phase 6: Manually Validate Bugs</h4>
+
+    <p class="text-justify">
+    Previous research <a href="#Herzig">(Herzig, Just, and Zeller, 2013)</a> mentions that bug report classifications are unreliable. Thus, we performed a bug report manual classification to identify which bug reports actually represent bugs in the projects of Apache Tomcat, Apache Derby, and Apache Ant. This classification was performed in pairs by 14 researchers. Each person of the pair was responsible for manually classify the same bug report as "bug" or "not bug". When there was a divergence in opinion, the pair should talk and define the final classification of such bug. In the final analysis, we considered only bug reports that represent bugs in such projects. We manually validated 1,477 bug reports, in which 516 (35.00%) were classified as "bug" and 961 (65.00%) as "not bug".
+    </p>
 
     <h4>Phase 7: Compute the Distance in Number of Changes</h4>
 
-    <h4>Phase 8: Computer Quartiles</h4>
+    <p class="text-justify">
+    To answer our RQ, we compute the distance in number of changes between the refactored commit and the bug code commit. To do that, we take into account only commits where the buggy element was touched by any change.
+    </p>
 
-    <h4>Phase 9: Analyze the Data</h4>
+    <h4>Phase 8: Compute Quartiles</h4>
 
+    <p class="text-justify">
+    To measure the bug proneness of refactored code elements, we computed the quartiles based on distance values and observed how far or how close a bug appears after a refactoring operation considering the distance classification. Figure 1 presents an example of the bug proneness of refactored code elements. In the Figure, method X was refactored in commit 1 and had a bug in commit 10. From commit 1 to 10, method X was changed 2 times (in commit 3 and 5). Thus, we say that the distance between the refactored commit and the bug code commit (<i>Distance (r,b)</i>) is equal to 2. In this case, a bug is close to the refactored commit. In our RQ, we will also analyze the bug proneness of each refactoring tactic, namely root-canal and floss refactoring. In the end, we will compare if root-canal refactoring is more bug-prone than floss refactoring.
+    </p>
+
+     <div align="center">
+            <img src="resources/bug-proneness-example.png" alt="Example of bug proneness" width="60%">
+            <h5><b>Figure 1. </b>Example of bug proneness</h5>
+        </div>
+
+
+    <!--<h4>Phase 9: Analyze the Data</h4>-->
+
+     <h3 class="page-header" id="downloads">Downloads</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th width="20%">Artefact</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td> <a href="resources/distance_classification.zip" target="_blank">Distances by Project</a></td>
+                    <td> This file contains the complete list of all relationships between refactorings and bugs analyzed in this study. There is a file per software project.</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td> <a href="resources/Poster_ICSE_2018.pdf" target="_blank">Submited Paper</a></td>
+                    <td> Complete text submited to ICSE 2018</td>
+                </tr>
+                <tr>
+            </tbody>
+        </table>
    </div>
 
-
-
-
-
 </body>
+
+   <!-- /refs -->
+    <div class="container">
+        <h3 class="page-header" id="references">References</h3>
+
+
+        <ol>
+            <li id="Murphy-Hill">
+                Murphy-Hill, Emerson, Chris Parnin, and Andrew P. Black. "How we refactor, and how we know it." IEEE Transactions on Software Engineering 38.1 (2012): 5-18.
+            </li>
+            <li id="Fowler">
+               Fowler, Martin, and Kent Beck. Refactoring: improving the design of existing code. Addison-Wesley Professional, 1999.
+            </li>
+            <li id="Tsantalis">
+               Tsantalis, Nikolaos, et al. "A multidimensional empirical study on refactoring activity." Proceedings of the 2013 Conference of the Center for Advanced Studies on Collaborative Research. IBM Corp., 2013.
+            </li>
+             <li id="Grubbs">
+               Grubbs, Frank E. "Procedures for detecting outlying observations in samples." Technometrics 11.1 (1969): 1-21.
+            </li>
+            <li id="Śliwerski">
+               Śliwerski, Jacek, Thomas Zimmermann, and Andreas Zeller. "When do changes induce fixes?." ACM sigsoft software engineering notes. Vol. 30. No. 4. ACM, 2005.
+            </li>
+            <li id="Dallmeier">
+               Dallmeier, Valentin, and Thomas Zimmermann. "Extraction of bug localization benchmarks from history." Proceedings of the twenty-second IEEE/ACM international conference on Automated software engineering. ACM, 2007.
+            </li>
+            <li id="Ye">
+               Ye, Xin, Razvan Bunescu, and Chang Liu. "Learning to rank relevant files for bug reports using domain knowledge." Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering. ACM, 2014.
+            </li>
+            <li id="Costa">
+              da Costa, Daniel Alencar, et al. "A framework for evaluating the results of the szz approach for identifying bug-introducing changes." IEEE Transactions on Software Engineering 43.7 (2017): 641-657.
+            </li>
+            <li id="Kim">
+              Kim, Sunghun, et al. "Automatic identification of bug-introducing changes." Automated Software Engineering, 2006. ASE'06. 21st IEEE/ACM International Conference on. IEEE, 2006.
+            </li>
+            <li id="Williams">
+             Williams, Chadd, and Jaime Spacco. "Szz revisited: verifying when changes induce fixes." Proceedings of the 2008 workshop on Defects in large software systems. ACM, 2008.
+            </li>
+             <li id="Herzig">
+            Herzig, Kim, Sascha Just, and Andreas Zeller. "It's not a bug, it's a feature: how misclassification impacts bug prediction." Proceedings of the 2013 international conference on software engineering. IEEE Press, 2013.
+            </li>
+
+        </ol>
+    </div>
+
 
 </html>
