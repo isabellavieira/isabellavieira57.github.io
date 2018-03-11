@@ -111,7 +111,7 @@
 
     <h4> Phase 1: Select Software Projects</h4>
     <p class="text-justify">
-    This phase consists of selecting a set of software projects for analysis. We relied on open source projects selected from GitHub. To conduct our study, we selected 5 open source projects which follow three criteria as follows. First, they are highly popular on GitHub and from different domains. Second, users actively use their issue tracking systems such as Bugzilla and the GitHub issue management system for bug reporting and improvement suggestions. Third, at least 90\% of the code repository is written in Java, which is a very popular language. Table I provides general data about the analyzed projects. The first column presents the name of the software project. The second column presents the number of lines of code. The third column presents the number of classes. The fourth column presents the analyzed period. The fifth column presents the number of commits. The sixth column presents the number of bug reports.
+    This phase consists of selecting a set of software projects for analysis. We relied on open source projects selected from GitHub. To conduct our study, we selected 5 open source projects which follow three criteria as follows. First, they are highly popular on GitHub and from different domains. Second, users actively use their issue tracking systems such as Bugzilla and the GitHub issue management system for bug reporting and improvement suggestions. Third, at least 90\% of the code repository is written in Java, which is a very popular language. Table 1 provides general data about the analyzed projects. The first column presents the name of the software project. The second column presents the number of lines of code. The third column presents the number of classes. The fourth column presents the analyzed period. The fifth column presents the number of commits. The sixth column presents the number of bug reports.
     </p>
 
     <style type="text/css">
@@ -125,7 +125,7 @@
         </style>
         <table class="tg" align="center">
             <caption>
-                Table I. General data of the analyzed software projects
+                Table 1. General data of the analyzed software projects
             </caption>
             <tr>
                 <th class="tg-e3zv">Software Project</th>
@@ -179,7 +179,7 @@
 
     <h4>Phase 2: Identify Refactorings</h4>
     <p class="text-justify">
-    We choose to study the 11 most commonly investigated refactoring types in the literature <a href="#Murphy-Hill">(Murphy Hill, Parnin and Black, 2012)</a>. These refactoring types are defined in Fowler's catalog <a href="#Fowler">(Fowler, 1991)</a>. Moreover, we used the Refactoring Miner tool <a href="#Tsantalis">(Tsantalis et al., 2013)</a> to identify refactoring operations in the selected projects. <a href="#Tsantalis">Tsantalis et al.,</a> have reported that Refactoring Miner has a precision of 96.4% and low rates of false positives for all refactoring types, which we confirmed in our validation process, as discussed in Phase 3. Refactoring Miner detects all 11 refactoring types investigated in our study <a href="#Murphy-Hill">(Murphy Hill, Parnin and Black, 2012)</a>. We identified 20,689 refactoring operations in total. Table II presents the refactoring types analyzed in our study. The first column presents the refactoring type. The second column describes the problem that is intended to be addressed by each refactoring type. The third column describes the solution intended by applying each refactoring type. 
+    We choose to study the 11 most commonly investigated refactoring types in the literature <a href="#Murphy-Hill">(Murphy Hill, Parnin and Black, 2012)</a>. These refactoring types are defined in Fowler's catalog <a href="#Fowler">(Fowler, 1991)</a>. Moreover, we used the Refactoring Miner tool <a href="#Tsantalis">(Tsantalis et al., 2013)</a> to identify refactoring operations in the selected projects. <a href="#Tsantalis">Tsantalis et al.,</a> have reported that Refactoring Miner has a precision of 96.4% and low rates of false positives for all refactoring types, which we confirmed in our validation process, as discussed in Phase 3. Refactoring Miner detects all 11 refactoring types investigated in our study <a href="#Murphy-Hill">(Murphy Hill, Parnin and Black, 2012)</a>. We identified 20,689 refactoring operations in total. Table 2 presents the refactoring types analyzed in our study. The first column presents the refactoring type. The second column describes the problem that is intended to be addressed by each refactoring type. The third column describes the solution intended by applying each refactoring type. 
     </p>
 
     <style type="text/css">
@@ -193,7 +193,7 @@
         </style>
         <table class="tg" align="center">
             <caption>
-                Table II. Refactoring types analyzed in this study (Extracted from <a href="#Fowler">Fowler, 1991</a>)
+                Table 2. Refactoring types analyzed in this study (Extracted from <a href="#Fowler">Fowler, 1991</a>)
             </caption>
             <tr>
                 <th class="tg-e3zv">Refactoring Type</th>
@@ -262,7 +262,7 @@
         <p class="text-justify"> In this work, it is considered as refactored elements all those directly affected by the refactoring. If a refactoring is applied only in a method body, only this method is considered as refactored element. For instance, lets consider the Move
             Method refactoring. In this refactoring type, a method m is moved from class A to B. Hence, the considered refactored elements in this case would be {m, A, B}. All m method callers are affected by this refactoring, but we do not consider them
             as refactored elements. As another example, let us consider the Rename Method refactoring. In this scenario, a new name is given to the method m and the refactored element set would be just {m}. For each refactoring type a different refactored
-            element set is used. In the following table, we present the considered refactored elements for each type of refactoring. </p>
+            element set is used. Table 3 presents the considered refactored elements for each type of refactoring. </p>
 
          <style type="text/css">
             .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
@@ -275,7 +275,7 @@
         </style>
         <table class="tg" align="center">
             <caption>
-                Table III. Refactored Elements
+                Table 3. Refactored Elements
             </caption>
                  <tr>
                 <th class="tg-e3zv">Refactoring</th>
@@ -342,7 +342,7 @@
     <h4>Phase 4: Collect Bug Reports</h4>
 
     <p class="text-justify">
-    We selected bug reports with status <i>resolved fixed</i>, <i>verified fixed</i>, <i>closed</i>, or <i>closed fixed</i> for analysis. Furthermore, we chose to analyze only bugs labeled as <i>bug</i> in the issue tracking system. Table I presents the number of bug reports for each software project (column #Bug Reports).
+    We selected bug reports with status <i>resolved fixed</i>, <i>verified fixed</i>, <i>closed</i>, or <i>closed fixed</i> for analysis. Furthermore, we chose to analyze only bugs labeled as <i>bug</i> in the issue tracking system. Table 1 presents the number of bug reports for each software project (column #Bug Reports).
     </p>
 
     <h4>Phase 5: Identify the Bug-fix Commit, Bug-fix Elements, and Bug-inducing Commit</h4>
@@ -372,12 +372,12 @@
     <h4>Phase 8: Compute Quartiles</h4>
 
     <p class="text-justify">
-    To measure the bug proneness of refactored code elements, we computed the quartiles based on distance values and observed how far or how close a bug appears after a refactoring operation considering the distance classification. Figure 1 presents an example of the bug proneness of refactored code elements. In the Figure, method X was refactored in commit 1 and had a bug in commit 10. From commit 1 to 10, method X was changed 2 times (in commit 3 and 5). Thus, we say that the distance between the refactored commit and the bug code commit (<i>Distance (r,b)</i>) is equal to 2. In this case, a bug is close to the refactored commit. In our RQ, we will also analyze the bug proneness of each refactoring tactic, namely root-canal and floss refactoring. In the end, we will compare if root-canal refactoring is more bug-prone than floss refactoring.
+    To measure the bug proneness of refactored code elements, we computed the quartiles based on distance values and observed how far or how close a bug appears after a refactoring operation considering the distance classification. Figure 2 presents an example of the bug proneness of refactored code elements. In the Figure, method X was refactored in commit 1 and had a bug in commit 10. From commit 1 to 10, method X was changed 2 times (in commit 3 and 5). Thus, we say that the distance between the refactored commit and the bug code commit (<i>Distance (r,b)</i>) is equal to 2. In this case, a bug is close to the refactored commit. In our RQ, we will also analyze the bug proneness of each refactoring tactic, namely root-canal and floss refactoring. In the end, we will compare if root-canal refactoring is more bug-prone than floss refactoring.
     </p>
 
      <div align="center">
             <img src="resources/bug-proneness-example.png" alt="Example of bug proneness" width="60%">
-            <h5><b>Figure 1. </b>Example of bug proneness</h5>
+            <h5><b>Figure 2. </b>Example of bug proneness</h5>
         </div>
 
 
